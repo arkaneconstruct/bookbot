@@ -14,14 +14,20 @@ def main():
     print(f"The '{letter['char']}' character was found {letter['num']} times")
   print("--- End report ---")
 
+#split book text into a list of words
+#count length of list
 def get_num_words(text):
   words = text.split()
   return (len(words))
 
+#read book contents from filepath
 def get_book_text(path):
   with open(path) as f:
     return f.read()
 
+#create dictionary of all book text characters
+#convert all characters to lowercase
+#count number of occurences of each character
 def get_num_chars(text):
   chars = {}
   for c in text:
@@ -32,9 +38,12 @@ def get_num_chars(text):
       chars[lowered] = 1
   return chars
 
+#define sort value
 def sort_chars(char_count):
   return char_count["num"]
 
+#create list of per character dictionaries and num of occurences
+#sort desc by num of occurences
 def create_dict(char_count):
     book_chars = []
     for letter in char_count:
